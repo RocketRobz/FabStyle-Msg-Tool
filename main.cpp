@@ -44,15 +44,100 @@ off_t getFileSize(const char *fileName)
 	return fsize;
 }
 
-void makeDatFiles(void) {
+void makeDatFiles(bool oneFile) {
+    int iStart = 0;
+    int iEnd = 184;
+
     clear_screen();
+    if (oneFile) {
+        int typedNumber[5];
+        int typedNumberPos = 0;
+        bool increaseTypedNumberPos = false;
+
+        printf("Type the 3-digit number:\n");
+        while (1) {
+            if (GetKeyState('0') & 0x8000) {
+                printf("0");
+                typedNumber[typedNumberPos] = 0;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('0') & 0x8000);
+            }
+            if (GetKeyState('1') & 0x8000) {
+                printf("1");
+                typedNumber[typedNumberPos] = 1;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('1') & 0x8000);
+            }
+            if (GetKeyState('2') & 0x8000) {
+                printf("2");
+                typedNumber[typedNumberPos] = 2;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('2') & 0x8000);
+            }
+            if (GetKeyState('3') & 0x8000) {
+                printf("3");
+                typedNumber[typedNumberPos] = 3;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('3') & 0x8000);
+            }
+            if (GetKeyState('4') & 0x8000) {
+                printf("4");
+                typedNumber[typedNumberPos] = 4;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('4') & 0x8000);
+            }
+            if (GetKeyState('5') & 0x8000) {
+                printf("5");
+                typedNumber[typedNumberPos] = 5;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('5') & 0x8000);
+            }
+            if (GetKeyState('6') & 0x8000) {
+                printf("6");
+                typedNumber[typedNumberPos] = 6;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('6') & 0x8000);
+            }
+            if (GetKeyState('7') & 0x8000) {
+                printf("7");
+                typedNumber[typedNumberPos] = 7;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('7') & 0x8000);
+            }
+            if (GetKeyState('8') & 0x8000) {
+                printf("8");
+                typedNumber[typedNumberPos] = 8;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('8') & 0x8000);
+            }
+            if (GetKeyState('9') & 0x8000) {
+                printf("9");
+                typedNumber[typedNumberPos] = 9;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('9') & 0x8000);
+            }
+            if (increaseTypedNumberPos) {
+                typedNumberPos++;
+                if (typedNumberPos == 3) {
+                    printf("\n\nPress any number to continue.\n");
+                }
+                if (typedNumberPos > 3) {
+                    iStart = ((typedNumber[0]*100)+(typedNumber[1]*10)+(typedNumber[2]));
+                    iEnd = iStart;
+                    break;
+                }
+                increaseTypedNumberPos = false;
+            }
+        }
+        clear_screen();
+    }
 	printf("Making...\n");
 
     chdir(is3DSVersion ? "3DS" : "DS");
     FILE* fp;
     FILE* newDat;
     // Process all .dat files
-    for (int i = 0; i <= 184; i++) {
+    for (int i = iStart; i <= iEnd; i++) {
         if (i == 62) i = 100;
         if (i >= 100) {
             sprintf(msgsecName, "msgsec%i", i);
@@ -101,15 +186,100 @@ void makeDatFiles(void) {
     }
 }
 
-void extractDatFiles(void) {
+void extractDatFiles(bool oneFile) {
+    int iStart = 0;
+    int iEnd = 184;
+
     clear_screen();
+    if (oneFile) {
+        int typedNumber[5];
+        int typedNumberPos = 0;
+        bool increaseTypedNumberPos = false;
+
+        printf("Type the 3-digit number:\n");
+        while (1) {
+            if (GetKeyState('0') & 0x8000) {
+                printf("0");
+                typedNumber[typedNumberPos] = 0;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('0') & 0x8000);
+            }
+            if (GetKeyState('1') & 0x8000) {
+                printf("1");
+                typedNumber[typedNumberPos] = 1;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('1') & 0x8000);
+            }
+            if (GetKeyState('2') & 0x8000) {
+                printf("2");
+                typedNumber[typedNumberPos] = 2;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('2') & 0x8000);
+            }
+            if (GetKeyState('3') & 0x8000) {
+                printf("3");
+                typedNumber[typedNumberPos] = 3;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('3') & 0x8000);
+            }
+            if (GetKeyState('4') & 0x8000) {
+                printf("4");
+                typedNumber[typedNumberPos] = 4;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('4') & 0x8000);
+            }
+            if (GetKeyState('5') & 0x8000) {
+                printf("5");
+                typedNumber[typedNumberPos] = 5;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('5') & 0x8000);
+            }
+            if (GetKeyState('6') & 0x8000) {
+                printf("6");
+                typedNumber[typedNumberPos] = 6;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('6') & 0x8000);
+            }
+            if (GetKeyState('7') & 0x8000) {
+                printf("7");
+                typedNumber[typedNumberPos] = 7;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('7') & 0x8000);
+            }
+            if (GetKeyState('8') & 0x8000) {
+                printf("8");
+                typedNumber[typedNumberPos] = 8;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('8') & 0x8000);
+            }
+            if (GetKeyState('9') & 0x8000) {
+                printf("9");
+                typedNumber[typedNumberPos] = 9;
+                increaseTypedNumberPos = true;
+                while (GetKeyState('9') & 0x8000);
+            }
+            if (increaseTypedNumberPos) {
+                typedNumberPos++;
+                if (typedNumberPos == 3) {
+                    printf("\n\nPress any number to continue.\n");
+                }
+                if (typedNumberPos > 3) {
+                    iStart = ((typedNumber[0]*100)+(typedNumber[1]*10)+(typedNumber[2]));
+                    iEnd = iStart;
+                    break;
+                }
+                increaseTypedNumberPos = false;
+            }
+        }
+        clear_screen();
+    }
 	printf("Extracting...\n");
 
     chdir(is3DSVersion ? "3DS" : "DS");
     FILE* fp;
     FILE* extractedMsg;
     // Process all .dat files
-    for (int i = 0; i <= 184; i++) {
+    for (int i = iStart; i <= iEnd; i++) {
         if (i == 62) i = 100;
         if (i >= 100) {
             sprintf(msgsecName, "msgsec%i", i);
@@ -156,8 +326,8 @@ void displayTitle(void) {
 	printf(is3DSVersion ? "Set to read .dat files in 3DS folder\n" : "Set to read .dat files in DS folder\n");
 	printf("\n");
 	printf(is3DSVersion ? "C: Switch to DS\n" : "C: Switch to 3DS\n");
-	printf("M: Make .dat files\n");
-	printf("X: Extract from .dat files\n");
+	printf("M: Make .dat files, K: Make one .dat file\n");
+	printf("X: Extract from .dat files, D: Extract one .dat file\n");
 }
 
 int main(int argc, char **argv) {
@@ -170,11 +340,19 @@ int main(int argc, char **argv) {
             displayTitle();
         }
         if (GetKeyState('M') & 0x8000) {
-            makeDatFiles();
+            makeDatFiles(false);
+            break;
+        }
+        if (GetKeyState('K') & 0x8000) {
+            makeDatFiles(true);
             break;
         }
         if (GetKeyState('X') & 0x8000) {
-            extractDatFiles();
+            extractDatFiles(false);
+            break;
+        }
+        if (GetKeyState('D') & 0x8000) {
+            extractDatFiles(true);
             break;
         }
     }
